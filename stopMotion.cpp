@@ -320,8 +320,11 @@ void camera_manager(stopmotion_app &app)
     }
     else
     {
+        cv::Mat black = cv::Mat::zeros(app.cam.frame.size(), app.cam.frame.type());
         // If no frame exists just show a black screen the same size as if a image was there
-        cv::imshow("Animation view", cv::Mat::zeros(app.cam.frame.size(), app.cam.frame.type()));
+        cv::putText(black, "Start taking frames for them to show here!", cv::Point(0, 30), cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(255, 255, 255), 2);
+
+        cv::imshow("Animation view", black);
     }
 }
 
