@@ -233,8 +233,14 @@ void controller_interface(stopmotion_app &app)
     // Playing button
     app.playing = draw_image_button("play_on", "play_off", "Play/Pause", {418, 220}, app.playing);
 
+    // Play button key control
+    if (key_typed(SPACE_KEY))
+    {
+        app.playing = !app.playing;
+    }
+
     // Frame step buttons
-    if (draw_image_button("left_arrow", "left_arrow", "Back 1", {344, 220}, false))
+    if (draw_image_button("left_arrow", "left_arrow", "Back 1", {344, 220}, false) || key_typed(LEFT_KEY))
     {
         if (app.frame_number > 0)
         {
@@ -242,7 +248,7 @@ void controller_interface(stopmotion_app &app)
         }
     }
 
-    if (draw_image_button("right_arrow", "right_arrow", "Forward 1", {492, 220}, false))
+    if (draw_image_button("right_arrow", "right_arrow", "Forward 1", {492, 220}, false) || key_typed(RIGHT_KEY))
     {
         if (app.frame_number < app.ani.frames.size() - 1)
         {
@@ -250,7 +256,7 @@ void controller_interface(stopmotion_app &app)
         }
     }
 
-    if (draw_image_button("camera", "camera", "Capture Frame", {790, 220}, false))
+    if (draw_image_button("camera", "camera", "Capture Frame", {790, 220}, false) || key_typed(C_KEY))
     {
         capture_frame(app);
     }
