@@ -1,0 +1,14 @@
+BITMAP,onion_on,onion.png
+BITMAP,onion_off,onion-n.png
+BITMAP,bin_on,bin.png
+BITMAP,bin_off,bin-n.png
+BITMAP,play_on,play-on.png
+BITMAP,play_off,play-off.png
+BITMAP,left_arrow,left-arrow.png
+BITMAP,right_arrow,right-arrow.png
+BITMAP,camera,camera.png
+BITMAP,video,video.png
+FONT,montserrat,Montserrat-Regular.ttf
+FONT,montserrat_bold,Montserrat-Bold.ttf
+FONT,montserrat_light,Montserrat-Light.ttf
+SOUND,camera_shutter,camera-shutter.mp3

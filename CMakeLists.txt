@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.5)
+project( StopMotion )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} "C:/msys64/mingw64/include/")
+add_executable( StopMotion StopMotion.cpp )
+target_link_libraries( StopMotion ${OpenCV_LIBS} "C:/msys64/mingw64/lib/SplashKit.dll" )

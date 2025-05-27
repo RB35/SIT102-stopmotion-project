@@ -1,0 +1,3 @@
+C:/msys64/home/riley/stopMotion/CMakeFiles/StopMotion.dir
+C:/msys64/home/riley/stopMotion/CMakeFiles/edit_cache.dir
+C:/msys64/home/riley/stopMotion/CMakeFiles/rebuild_cache.dir
