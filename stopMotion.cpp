@@ -272,13 +272,32 @@ void controller_interface(stopmotion_app &app)
 }
 
 /**
+ * Displays prompt to user then reads integer from terminal
+ */
+int read_integer(string prompt)
+{
+    write(prompt);
+    string input = read_line();
+    while (!is_integer(input))
+    {
+        write_line("Input must be integer: ");
+        write(prompt);
+        input = read_line();
+    }
+
+    return convert_to_integer(input);
+}
+
+/**
  * Sets up all of the openCV stuff such as the webcam and display windows
  * @param cam A camera object to hold all the data that is needed
  */
 void start_camera(camera_data &cam)
 {
-    // open the first webcam plugged in the computer
-    cv::VideoCapture camera(1);
+    // Get camera number from user
+    write_line("Please enter the camera number you want to use. This will be 0 if you only have one camera connected");
+    int cam_number = read_integer("Camera number: ");
+    cv::VideoCapture camera(cam_number);
 
     if (!camera.isOpened())
     {
@@ -364,11 +383,13 @@ void player_manager(stopmotion_app &app)
 
 int main()
 {
-    open_window("Stopmotion Controller", 900, 300);
     // Load resources from bundle
     load_resource_bundle("UIBundle", "interface_graphics.txt");
     stopmotion_app app = new_app();
     start_camera(app.cam);
+
+    // Open interface window
+    open_window("Stopmotion Controller", 900, 300);
 
     while (!quit_requested())
     {
